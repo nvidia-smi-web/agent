@@ -1,0 +1,12 @@
+[project]
+name = "nvidia-smi-web-agent"
+version = "0.1.0"
+description = "The agent run on the GPU machine to collect the GPU metrics."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi==0.95.0",
+    "nvitop>=1.5.2",
+    "python-dotenv>=1.1.1",
+    "uvicorn>=0.35.0",
+]

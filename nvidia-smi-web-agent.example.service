@@ -1,0 +1,15 @@
+[Unit]
+Description=The agent run on the GPU machine to collect the GPU metrics.
+After=network.target syslog.target
+Wants=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/nvidia-smi-web-agent
+Environment="URL_PREFIX=server2"
+Environment="PORT=8000"
+Environment="TOKEN=f887583f-ad39-4a33-b8c9-6866bed62a97"
+ExecStart=zsh -c "source .venv/bin/activate && python main.py"
+
+[Install]
+WantedBy=multi-user.target
