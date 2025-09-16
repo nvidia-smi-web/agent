@@ -60,6 +60,8 @@ docker run -d \
 	-e TOKEN=changeme \
 	-e URL_PREFIX=server1 \
 	-p 8000:8000 \
+    -v /etc/passwd:/etc/passwd:ro \
+    -v /etc/group:/etc/group:ro \
 	--gpus=all \
     --pid=host \
     --restart unless-stopped \
