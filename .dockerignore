@@ -1,4 +1,4 @@
 .venv
-data
 docker-compose.yml
-nvidia-api
+.env*
+*.example*
