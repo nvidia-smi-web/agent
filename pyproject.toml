@@ -1,6 +1,6 @@
 [project]
 name = "nvidia-smi-web-agent"
-version = "0.1.1"
+version = "0.1.2"
 description = "The agent run on the GPU machine to collect the GPU metrics."
 readme = "README.md"
 requires-python = ">=3.12"
