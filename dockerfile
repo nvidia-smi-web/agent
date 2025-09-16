@@ -15,8 +15,8 @@ ENV PATH="/root/.local/bin:$PATH"
 RUN uv python install 3.12
 
 COPY pyproject.toml uv.lock ./
-RUN uv sync --no-cache-dir
+RUN uv sync --frozen --no-dev --no-cache-dir
 
 COPY . .
 
-CMD ["uv", "run", "main.py"]
+CMD [".venv/bin/python", "main.py"]
