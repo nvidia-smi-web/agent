@@ -1,6 +1,6 @@
 # nvidia-smi-web-agent
 
-An HTTP agent (FastAPI) that exposes realtime NVIDIA GPU metrics and running process information via simple JSON endpoints. It is intended to be deployed on GPU hosts and queried by a lightweight web UI or monitoring system. Internally it leverages the excellent `nvitop` library (NVML) instead of shelling out to `nvidia-smi`, providing lower overhead and structured data.
+A HTTP agent (FastAPI) that exposes realtime NVIDIA GPU metrics and running process information via simple JSON endpoints. It is intended to be deployed on GPU hosts and queried by a lightweight web UI or monitoring system. Internally it leverages the excellent `nvitop` library (NVML) instead of shelling out to `nvidia-smi`, providing lower overhead and structured data.
 
 ## ✨ Features
 
