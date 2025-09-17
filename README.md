@@ -56,16 +56,16 @@ docker pull do1e/nvidia-smi-web-agent
 Run (with GPU access):
 ```bash
 docker run -d \
-	--name nvidia-smi-web-agent \
-	-e TOKEN=changeme \
-	-e URL_PREFIX=server1 \
-	-p 8000:8000 \
+    --name nvidia-smi-web-agent \
+    -e TOKEN=changeme \
+    -e URL_PREFIX=server1 \
+    -p 8000:8000 \
     -v /etc/passwd:/etc/passwd:ro \
     -v /etc/group:/etc/group:ro \
-	--gpus=all \
+    --gpus=all \
     --pid=host \
     --restart unless-stopped \
-	do1e/nvidia-smi-web-agent
+    do1e/nvidia-smi-web-agent
 ```
 
 Test:
