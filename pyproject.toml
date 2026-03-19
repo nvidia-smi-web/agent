@@ -10,3 +10,25 @@ dependencies = [
     "python-dotenv>=1.1.1",
     "uvicorn>=0.35.0",
 ]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+ignore = ["C901", "E501", "E721", "E741", "F402", "F823"]
+select = ["C", "E", "F", "I", "PTH", "W"]
+
+[tool.ruff.lint.isort]
+lines-after-imports = 2
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.5.1",
+    "ruff>=0.15.6",
+]

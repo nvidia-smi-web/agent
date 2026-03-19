@@ -10,6 +10,7 @@ from fastapi.responses import JSONResponse
 from nvitop import Device, GpuProcess, NaType
 from starlette.middleware.base import BaseHTTPMiddleware
 
+
 load_dotenv()
 
 logging.basicConfig(
