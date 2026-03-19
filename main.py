@@ -49,7 +49,10 @@ class TokenAuthMiddleware(BaseHTTPMiddleware):
 
 def get_process_gpu_memory(process: GpuProcess) -> str:
     """Get the GPU memory usage of a process by its PID."""
-    gpu_memory = process.gpu_memory()
+    try:
+        gpu_memory = process.gpu_memory()
+    except Exception:
+        gpu_memory = None
     if isinstance(gpu_memory, NaType) or gpu_memory is None:
         return "N/A"
     return f"{round(gpu_memory / 1024 / 1024)}MiB"
@@ -133,12 +136,20 @@ async def get_status(request: Request):
             for pid in sorted_pids:
                 process = now_processes[pid]
                 if process_type == "" or process_type in process.type:
+                    try:
+                        username = process.username()
+                    except Exception:
+                        username = "N/A"
+                    try:
+                        command = process.command()
+                    except Exception:
+                        command = "N/A"
                     processes.append(
                         {
                             "idx": i,
                             "pid": process.pid,
-                            "username": process.username(),
-                            "command": process.command(),
+                            "username": username,
+                            "command": command,
                             "type": process.type,
                             "gpu_memory": get_process_gpu_memory(process),
                         }
