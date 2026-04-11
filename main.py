@@ -145,6 +145,14 @@ async def get_status(request: Request):
                         command = process.command()
                     except Exception:
                         command = "N/A"
+                    try:
+                        running_time = str(process.running_time())
+                    except Exception:
+                        running_time = "N/A"
+                    if running_time.startswith("0:00:0"):
+                        running_time = "N/A"
+                    if '.' in running_time:
+                        running_time = running_time.split('.')[0]
                     processes.append(
                         {
                             "idx": i,
@@ -153,6 +161,7 @@ async def get_status(request: Request):
                             "command": command,
                             "type": process.type,
                             "gpu_memory": get_process_gpu_memory(process),
+                            "running_time": running_time,
                         }
                     )
         return JSONResponse(
